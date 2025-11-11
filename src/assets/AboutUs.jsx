@@ -2,7 +2,7 @@ import React from "react";
 
 function AboutUs({ aboutUs }) {
   return (
-    <div ref={aboutUs} className="abtUsSec">
+    <div className="abtUsSec" ref={aboutUs}>
       <div className="abtH1">
         We build intelligent systems that think, learn, and adapt.
       </div>
@@ -18,7 +18,7 @@ function AboutUs({ aboutUs }) {
         faster, and with greater impact.
       </div>
       <div className="abtImgDiv">
-        <img className="abtUsImg" src="./public/AboutUs.png" alt="No Image" />
+        <img className="abtUsImg" src="/AboutUs.png" alt="No Image" />
       </div>
     </div>
   );

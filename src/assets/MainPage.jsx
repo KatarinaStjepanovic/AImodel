@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 function MainPage({heroSection}) {
   return (
-    <div className="mainPage" ref={heroSection}>
-      <div className="mainBubble">
+    <div className="mainPage" ref={heroSection} >
+      <div className="mainBubble" >
         <div className="mainHeader">Explore the Power of Thought in Code</div>
         <div className="mainText">
           Discover how our AI solutions transform data into decisions that move

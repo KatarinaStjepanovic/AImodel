@@ -1,28 +1,28 @@
-body{
+body {
     margin: 0;
     font-family: "Inter";
     color: white;
-}
-
-.mainPage{
     background-color: black;
-    height: 100vh;
-    width: 100vw;
 }
 
-.mainBubble{
+.mainPage {
+    height: 100vh;
+    position: relative;
+}
+
+.mainBubble {
     border-radius: 50px;
     position: absolute;
     left: 30%;
     top: 50%;
     width: 75%;
     height: 80%;
-    transform: translate(-30%,-50%);
+    transform: translate(-30%, -50%);
     border: 2px solid white;
     overflow: hidden;
 }
 
-.mainHeader{
+.mainHeader {
     font-size: 35px;
     position: absolute;
     left: 10%;
@@ -33,7 +33,7 @@ body{
     letter-spacing: 3px;
 }
 
-.mainText{
+.mainText {
     font-size: 13px;
     width: 30%;
     opacity: 0.9;
@@ -44,26 +44,26 @@ body{
 }
 
 .mainBtn {
-  border-radius: 20px;
-  width: 15%;
-  height: 6%;
-  border: none;
-  background: linear-gradient(90deg, white, black);
-  background-size: 200% 100%;
-  position: absolute;
-  font-size: 16px;
-  top: 75%;
-  left: 10%;
-  cursor: pointer;
-  background-position: right;
-  transition: background-position 0.5s ease-in-out;
+    border-radius: 20px;
+    width: 15%;
+    height: 6%;
+    border: none;
+    background: linear-gradient(90deg, white, black);
+    background-size: 200% 100%;
+    position: absolute;
+    font-size: 16px;
+    top: 75%;
+    left: 10%;
+    cursor: pointer;
+    background-position: right;
+    transition: background-position 0.5s ease-in-out;
 }
 
 .mainBtn:hover {
     background-position: left;
 }
 
-.mainMore{
+.mainMore {
     font-size: 15px;
     position: absolute;
     left: 30%;
@@ -72,17 +72,17 @@ body{
     transition: all 0.5s ease-in-out;
 }
 
-.mainMore:hover{
+.mainMore:hover {
     letter-spacing: 2px;
 }
 
-.mainVideo{
+.mainVideo {
     position: absolute;
     left: 55%;
     height: 80vh;
 }
 
-.links{
+.links {
     position: fixed;
     z-index: 999;
     right: 5%;
@@ -91,18 +91,18 @@ body{
     line-height: 30px;
 }
 
-.link{
+.link {
     cursor: pointer;
     transition: all 0.5s ease-in-out;
 }
 
-.abtUsSec{
+.abtUsSec {
     height: 100vh;
-    background-color: black;
     position: relative;
+    margin-top: 10%;
 }
 
-.abtH1{
+.abtH1 {
     font-size: 40px;
     letter-spacing: 5px;
     font-weight: 300;
@@ -113,19 +113,19 @@ body{
     z-index: 9999;
 }
 
-.abtText{
+.abtText {
     position: absolute;
     top: 45%;
     opacity: 1;
     font-weight: 100;
     left: 10%;
     font-size: 15px;
-   line-height: 20px;
+    line-height: 20px;
     z-index: 9999;
     letter-spacing: 1px;
 }
 
-.abtUsImg{
+.abtUsImg {
     width: 100%;
     height: 70%;
     position: absolute;
@@ -133,9 +133,148 @@ body{
     opacity: 0.2;
 }
 
-.navIcon{
+.navIcon {
     transition: all 0.5s ease-in-out;
     position: absolute;
     left: -30%;
 }
 
+.capDiv {
+    height: 100vh;
+    margin-top: 10%;
+    background-color: black;
+    position: relative;
+}
+
+.allCaps {
+    position: absolute;
+    top: 50%;
+    width: 65%;
+    transform: translateY(-50%);
+    left: 10%;
+}
+
+.cap {
+    width: 100%;
+    margin-bottom: 30px;
+    padding: 25px;
+    padding-left: 30px;
+    border-radius: 20px;
+    border: 2px solid white;
+    position: relative;
+    cursor: pointer;
+    color: white;
+}
+
+
+
+.cap:hover .capText {
+    display: block;
+    animation: opacityCh 0.5s forwards;
+}
+
+.cap:hover .goIcon {
+    opacity: 1;
+}
+
+.cap:hover .capTitle::after {
+    opacity: 1;
+}
+
+.capTitle {
+    position: relative;
+}
+
+.capTitle::after {
+    position: absolute;
+    content: "";
+    top: 110%;
+    left: 0;
+    width: 250px;
+    height: 2px;
+    background-color: white;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+@keyframes opacityCh {
+    0%{
+        opacity: 0;
+    }100%{
+        opacity: 1;
+    }
+}
+
+.capText {
+    display: none;
+    position: relative;
+    transition: all 0.5s ease-in-out;
+    margin-top: 20px;
+    width: 50%;
+    opacity: 2;
+}
+
+.capVideo {
+    position: absolute;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    opacity: 0.3;
+}
+
+.goIcon {
+    transform: rotate(-45deg);
+    position: absolute;
+    right: 2%;
+    top: 10%;
+    font-size: 20px;
+    transition: all 0.5 ease-in-out;
+    opacity: 0;
+}
+
+.techDiv{
+    height: 100vh;
+    padding-top: 10%;
+    position: relative;
+}
+
+.techBack{
+    position: absolute;
+    top: 0;
+    opacity: 0.3;
+}
+
+.techImg{
+    height: 50%;
+    position: absolute;
+    left: 10%;
+    top: 60%;
+    transform: translateY(-50%);
+}
+
+.techH1{
+    position: absolute;
+    top: 40%;
+    right: 15%;
+    font-size: 35px;
+}
+
+.techH1::after{
+    content: "";
+    position: absolute;
+    top: 110%;
+    height: 2px;
+    width: 110%;
+    right: 0;
+    background-color: white;
+}
+
+.techText{
+    position: absolute;
+    text-align: right;
+    width: 25%;
+    top: 50%;
+    right: 15%;
+    line-height: 30px;
+}

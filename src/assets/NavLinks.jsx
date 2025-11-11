@@ -1,21 +1,43 @@
-import React from "react";
+import React, { use, useEffect, useMemo } from "react";
 import useIsVisible from "../../hooks/useIsVisible";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 function NavLinks({ heroSection, aboutUs, capabilities, technology }) {
+  const hero = useIsVisible(heroSection);
+  const about = useIsVisible(aboutUs);
+  const cap = useIsVisible(capabilities);
+  const tech = useIsVisible(technology);
+
+   const activeIndex = useMemo(() => {
+    if(hero){
+      return 5;
+    }else if(about){
+      return 30;
+    }else if(cap){
+      return 55;
+    }else if(tech){
+      return 80;
+    }else{
+      return -1;
+    }
+  }, [hero,about, cap, tech]);
+  
   const scroll = (sec) => {
     sec.current.scrollIntoView({ behavior: "smooth", block: "start" });
   };
+
+  
+ 
   return (
     <div className="links">
-    <FontAwesomeIcon className="navIcon" icon={faArrowRight}/>
+    <FontAwesomeIcon className="navIcon" icon={faArrowRight} style={{ top: `${activeIndex}%`}}/>
       <div
         className="link"
         onClick={() => {
           scroll(heroSection);
         }}
-        style={{ opacity: useIsVisible(heroSection) ? "1" : "0.5" }}
+        style={{ opacity: hero ? "1" : "0.5" }}
       >
         Hero Section
       </div>
@@ -24,7 +46,7 @@ function NavLinks({ heroSection, aboutUs, capabilities, technology }) {
         onClick={() => {
           scroll(aboutUs);
         }}
-        style={{ opacity: useIsVisible(aboutUs) ? "1" : "0.5" }}
+        style={{ opacity: about? "1" : "0.5" }}
       >
         About Us
       </div>
@@ -33,7 +55,7 @@ function NavLinks({ heroSection, aboutUs, capabilities, technology }) {
         onClick={() => {
           scroll(capabilities);
         }}
-        style={{ opacity: useIsVisible(capabilities) ? "1" : "0.5" }}
+        style={{ opacity: cap ? "1" : "0.5" }}
       >
         Capabilities
       </div>
@@ -42,7 +64,7 @@ function NavLinks({ heroSection, aboutUs, capabilities, technology }) {
         onClick={() => {
           scroll(technology);
         }}
-        style={{ opacity: useIsVisible(technology) ? "1" : "0.5" }}
+        style={{ opacity: tech ? "1" : "0.5" }}
       >
         Technology
       </div>

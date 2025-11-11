@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "title": "Natural Language Understanding",
+    "text": "Accurately interprets complex text, questions, and commands in real time."
+  },
+  {
+    "id": 2,
+    "title": "Contextual Reasoning",
+    "text": "Maintains awareness of prior inputs to deliver coherent, relevant, and logically consistent responses."
+  },
+  {
+    "id": 3,
+    "title": "Data Summarization",
+    "text": "Condenses large volumes of text or documents into clear, concise summaries."
+  },
+  {
+    "id": 4,
+    "title": "Text Generation",
+    "text": "Produces structured or creative text outputs, such as articles, explanations, or code, with controlled tone and precision."
+  },
+  {
+    "id": 5,
+    "title": "Information Extraction",
+    "text": "Identifies key details, entities, and relationships within text for analysis or automation."
+  }
+]
