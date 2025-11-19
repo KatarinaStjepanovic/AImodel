@@ -1,10 +1,13 @@
 import React from "react";
 import { Cerebras } from "@cerebras/cerebras_cloud_sdk";
 
+
+
 export default function useSend(){
     async function sendQuestion(message) {
+      const key = import.meta.env.VITE_API_KEY;
         const client = new Cerebras({
-      apiKey: "csk-m6ekxk4wvxpjmdxjjvmdemxxfkjh48rdk6yc32epfdd92v5t",
+      apiKey: key,
     });
 
      const answer = await client.chat.completions.create({
