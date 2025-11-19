@@ -1,7 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function MainPage({heroSection}) {
+  const nav = useNavigate();
+  
   return (
     <div className="mainPage" ref={heroSection} >
       <div className="mainBubble" >

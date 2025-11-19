@@ -1,45 +1,37 @@
 import React from "react";
 import { useRef } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import AImodel from "./AImodel";
-import NavLinks from "./NavLinks";
-import MainPage from "./MainPage";
-import AboutUs from "./AboutUs";
-import Capabilities from "./Capabilities";
-import Technology from "./Technology";
+import FrontPage from "./FrontPage";
+import Loader from "./Loader";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <FrontPage />,
+     loader: async () => {
+      await new Promise((r) => setTimeout(r, 1500));
+      return null;
+    },
+  },
+  {
+    path: "/AIchat",
+    element: <AImodel />,
+     loader: async () => {
+      await new Promise((r) => setTimeout(r, 1500));
+      return null;
+    },
+  },
+]);
+
 
 function App() {
-  const heroSection = useRef(null);
-  const aboutUs = useRef(null);
-  const capabilities = useRef(null);
-  const technology = useRef(null);
-
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-            
-              <MainPage heroSection = {heroSection} aboutUs={aboutUs} />
-              < AboutUs aboutUs = {aboutUs} />
-              < Capabilities capabilities={capabilities}/>
-              < Technology  technology={technology}/>
-                <NavLinks
-                heroSection={heroSection}
-                aboutUs={aboutUs}
-                capabilities={capabilities}
-                technology={technology}
-              />
-            </>
-          }
-        />
-        <Route path="/AIchat" element={<AImodel />} />
-      </Routes>
-    </BrowserRouter>
-  );
+     return <RouterProvider router={router} />
 }
 
 export default App;
