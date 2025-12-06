@@ -1,20 +1,17 @@
 import React from "react";
 import { useRef } from "react";
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 import AImodel from "./AImodel";
 import FrontPage from "./FrontPage";
-import Loader from "./Loader";
+
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <FrontPage />,
-     loader: async () => {
+    loader: async () => {
       await new Promise((r) => setTimeout(r, 1500));
       return null;
     },
@@ -22,16 +19,15 @@ const router = createBrowserRouter([
   {
     path: "/AIchat",
     element: <AImodel />,
-     loader: async () => {
+    loader: async () => {
       await new Promise((r) => setTimeout(r, 1500));
       return null;
     },
   },
 ]);
 
-
 function App() {
-     return <RouterProvider router={router} />
+  return <RouterProvider router={router} />;
 }
 
 export default App;

@@ -1,10 +1,10 @@
 import React from "react";
 import { Cerebras } from "@cerebras/cerebras_cloud_sdk";
 
+import { useContext } from "react";
+import { MessageContext } from "../src/MessageContext";
 
-
-export default function useSend(){
-    async function sendQuestion(message) {
+ async function sendQuestion(message) {
       const key = import.meta.env.VITE_API_KEY;
         const client = new Cerebras({
       apiKey: key,
@@ -19,10 +19,30 @@ export default function useSend(){
         },
       ],
     });
-       console.log(answer.choices[0].message.content)
         return answer.choices[0].message.content;
     }
 
-    return sendQuestion;
+
+
+export default function useSend(){
+  const {setMessages, setStart, setInput} = useContext(MessageContext);
+  async function send(mes){
+    const answer = await sendQuestion(mes);
+    const userText = mes;
+
+    setMessages( prev => {
+      setInput("");
+      const newM = [...prev];
+      newM.push({text: userText, role: "user"})
+      newM.push({text: answer, role: "bot"});
+      return newM;
+    })
+
+    setStart(false);
+
+  }
+   
+
+    return send;
 
 }
