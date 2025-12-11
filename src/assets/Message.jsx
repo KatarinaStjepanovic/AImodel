@@ -3,12 +3,13 @@ import ReactMarkdown from "react-markdown";
 
 function Message({ text, classN }) {
   const [dots, setDots] = useState(false);
+ 
   useEffect(() => {
     if (classN === "bot") {
       setDots(true);
       setTimeout(() => {
         setDots(false);
-      }, 1000);
+      }, 2000);
     }
   }, [classN]);
   return (
@@ -18,7 +19,7 @@ function Message({ text, classN }) {
         <div className={classN}>
            {
              dots ? 
-             <div className={dots ? "loader" : null}> </div>
+             <div className="msgLoader"> </div>
           :  
           <ReactMarkdown>{text}</ReactMarkdown>
           }

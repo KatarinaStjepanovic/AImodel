@@ -23,12 +23,10 @@ function ChatUI() {
   useEffect(() => {
     if (!div.current) return;
 
- requestAnimationFrame(() => {
     div.current.scrollTo({
       top: div.current.scrollHeight,
       behavior: "smooth",
     });
-  });
   }, [messages]);
 
   const handleClick = (event) => {

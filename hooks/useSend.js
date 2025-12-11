@@ -33,8 +33,9 @@ export default function useSend(){
     setMessages( prev => {
       setInput("");
       const newM = [...prev];
-      newM.push({text: userText, role: "user"})
-      newM.push({text: answer, role: "bot"});
+      newM.push({text: userText, role: "user"});
+       newM.push({text: answer, role: "bot"});
+      
       return newM;
     })
 

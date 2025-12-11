@@ -1,12 +1,25 @@
 import React from "react";
+import { useState } from "react";
 import useSend from "../../hooks/useSend";
 
 function StarterQuestions({ text }) {
   const send = useSend();
+  const [debounce, setDeb] = useState(false);
 
   return (
     <div className="startQ" onClick={() => {
-      send(text)
+      if(!debounce){
+            setDeb(true)
+          setTimeout(() => {
+            setDeb(false)
+
+          },1500)
+      }
+      
+      !debounce && send(text)
+
+
+      
     }}>
       <div
         style={{
