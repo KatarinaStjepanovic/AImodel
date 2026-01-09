@@ -1,7 +1,6 @@
 import React from "react";
 import { useRef } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 
 import AImodel from "./AImodel";
 import FrontPage from "./FrontPage";

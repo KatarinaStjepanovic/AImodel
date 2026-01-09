@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 function CapabilitiesDiv({cap}) {
   return (
-    <Link to="/AImodel" style={{textDecoration: "none"}}>
+    <Link to="/AIchat" style={{textDecoration: "none"}}>
     <div className='cap'>
         <div className='capTitle'>{cap.title}</div>
         <div className='capText'>{cap.text}</div>

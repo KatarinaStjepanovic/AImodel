@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useContext } from "react";
 import useSend from "../../hooks/useSend";
 
@@ -15,6 +15,7 @@ function ChatUI() {
   const send = useSend();
   const nav = useNavigate();
   const navigation = useNavigation();
+  const [debaunce, setDeb] = useState(false);
   const { input, start, messages, showed, setInput } =
     useContext(MessageContext);
 
@@ -23,10 +24,11 @@ function ChatUI() {
   useEffect(() => {
     if (!div.current) return;
 
-    div.current.scrollTo({
+       div.current.scrollTo({
       top: div.current.scrollHeight,
       behavior: "smooth",
     });
+   
   }, [messages]);
 
   const handleClick = (event) => {
@@ -36,7 +38,14 @@ function ChatUI() {
 
   const handleKey = (event) => {
     if (event.key === "Enter" && input.trim() != "") {
+      if(!debaunce){
+      setDeb(true)
       send(input);
+      setTimeout(() => {
+      setDeb(false)
+
+      }, 1000)
+      }
     }
   };
 
@@ -68,6 +77,7 @@ function ChatUI() {
               {messages.map((m, id) => {
                 return <Message text={m.text} classN={m.role} key={id} />;
               })}
+           
             </div>
             <div className="AIchatTitle">Ask Questions</div>
             <input
@@ -81,9 +91,17 @@ function ChatUI() {
               className="send"
               style={{ opacity: input !== "" ? 1 : 0 }}
               onClick={() => {
-                send(input);
+                if(!debaunce) {
+                setDeb(true)
+                   send(input)
+                setTimeout(() => {
+                  setDeb(false)
+                },1000)
+                }
+               
               }}
             />
+
           </div>
         </div>
       )}

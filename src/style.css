@@ -146,6 +146,7 @@ body {
     position: relative;
 }
 
+
 .allCaps {
     position: absolute;
     top: 50%;
@@ -164,12 +165,19 @@ body {
     position: relative;
     cursor: pointer;
     color: white;
+    transition: all 0.2s ease-in-out;
+    height: 20px;
+
+}
+
+.cap:hover{
+    height: 80px;
 }
 
 
 
 .cap:hover .capText {
-    display: block;
+    opacity: 1;
     animation: opacityCh 0.5s forwards;
 }
 
@@ -206,12 +214,11 @@ body {
 }
 
 .capText {
-    display: none;
-    position: relative;
+    position: absolute;
     transition: all 0.5s ease-in-out;
     margin-top: 20px;
     width: 50%;
-    opacity: 2;
+    opacity: 0;
 }
 
 .capVideo {
@@ -486,6 +493,10 @@ body {
     left: 5%;
 }
 
+.AImodel{
+    overflow: none;
+}
+
 .AImessages{
     position: absolute;
     left: 50%;
@@ -498,20 +509,4 @@ body {
     scrollbar-color: black transparent;
     overflow-x: hidden;
     padding-right: 10px;
-}
-
-.msgLoader {
-  width: 60px;
-  aspect-ratio: 4;
-  --c:white 90%,#0000;
-  background: 
-    radial-gradient(circle closest-side at left  6px top 50%,var(--c)),
-    radial-gradient(circle closest-side                     ,var(--c)),
-    radial-gradient(circle closest-side at right 6px top 50%,var(--c));
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  animation: l4 1s infinite alternate;
-}
-@keyframes l4 {
-    to{width:25px;aspect-ratio: 1}
 }
